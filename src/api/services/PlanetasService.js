@@ -1,7 +1,7 @@
-import { api, pegaConfig } from "./conexao";
+import { api, pegaConfig } from "../conexao";
 
 
-export const getPlanetas =  async () => {
+const getPlanetas =  async () => {
 
     let config = pegaConfig("GET", null);
 
@@ -17,8 +17,4 @@ export const getPlanetas =  async () => {
     }
 }
 
-const planetasService = {
-    getPlanetas
-}
-
-export default planetasService;
+export default getPlanetas;

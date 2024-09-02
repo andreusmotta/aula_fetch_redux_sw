@@ -1,41 +1,30 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-import { getPlanetas } from './PlanetasService'
-import planetasService from './PlanetasService';
+import getPlanetas from './api/services/PlanetasService'
+import { planetasGetSlice } from './api/slices/PlanetasSlice'
+import { useDispatch, useSelector } from 'react-redux'
 
 function App() {
 
-  const [listaPlanetas, setListaPlanetas] = useState([]);
+  const dispatch = useDispatch()
 
-  const puxaPlanetas = () => {
+  const { response, success, error, loading } = useSelector((state) => state.get);
 
-    getPlanetas()
+  const PegaPlanetas = () => {    
+    // getPlanetas();
 
-    const tremPlanetas = () => {
-      setListaPlanetas(getPlanetas.resposta)
-
-      console.log(listaPlanetas)
-
-      listaPlanetas.map(item, index) => {
-        
-      };
-
-    };
-
-
-  };
-
-setTimeout(tremPlanetas, 3000)
-
-};
+    useEffect(() => {
+      dispatch(planetasGetSlice)
+    }, [])
+  } 
 
 return (
   <>
     <div>
-      <h1>Olá mundo</h1>
+      <h1>Olá guerras nas estrelas</h1>
     </div>
     <div>
-      <button onClick={puxaPlanetas}>Pegar planetas</button>
+      <button onClick={PegaPlanetas}>Pegar planetas</button>
     </div>
   </>
 )
