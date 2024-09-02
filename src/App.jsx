@@ -8,14 +8,14 @@ function App() {
 
   const dispatch = useDispatch()
 
-  const { response, success, error, loading } = useSelector((state) => state.get);
+  const { resposta, sucesso, erro, carregando } = useSelector((state) => state.get);
 
   const PegaPlanetas = () => {    
+    
     // getPlanetas();
 
-    useEffect(() => {
-      dispatch(planetasGetSlice)
-    }, [])
+    dispatch(planetasGetSlice())
+
   } 
 
 return (
