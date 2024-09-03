@@ -13,7 +13,7 @@ const initialState = {
 
 export const planetasGetSlice = createAsyncThunk("planetas/get", async (_, thunkAPI) => {
     
-    const resposta = await getPlanetas.planetasGetSlice();
+    const resposta = await getPlanetas();
 
     if (resposta.message) {
         return thunkAPI.rejectWithValue(resposta.message);

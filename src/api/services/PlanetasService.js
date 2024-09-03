@@ -7,8 +7,7 @@ const getPlanetas =  async () => {
 
     try {
         const resposta = await fetch(`${api}/planets`, config)
-            .then(resposta => resposta.json())
-            .then(retorno => {console.log(retorno)})            
+            .then(resposta => resposta.json())                       
             .catch(erro => erro.json())
             
             return resposta            

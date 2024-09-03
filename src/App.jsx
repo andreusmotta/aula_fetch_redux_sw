@@ -6,17 +6,27 @@ import { useDispatch, useSelector } from 'react-redux'
 
 function App() {
 
+  const [listaPlanetas, setListaPlanetas] = useState([])
+
   const dispatch = useDispatch()
 
   const { resposta, sucesso, erro, carregando } = useSelector((state) => state.get);
 
-  const PegaPlanetas = () => {    
+  const PegaPlanetas = () => {
     
-    // getPlanetas();
+      dispatch(planetasGetSlice())    
+    
+  }   
 
-    dispatch(planetasGetSlice())
-
-  } 
+  // useEffect(() => {
+  //   if (sucesso) {
+  //     setListaPlanetas(resposta);
+  //   }
+  // }, [resposta, sucesso])
+  
+  // useEffect(() => {
+  //   console.log(listaPlanetas)
+  // }, [listaPlanetas])
 
 return (
   <>
