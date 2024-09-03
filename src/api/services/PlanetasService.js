@@ -8,10 +8,10 @@ const getPlanetas =  async () => {
     try {
         const resposta = await fetch(`${api}/planets`, config)
             .then(resposta => resposta.json())
-            .then(retorno => {console.log(retorno)})
+            .then(retorno => {console.log(retorno)})            
             .catch(erro => erro.json())
             
-            return resposta;
+            return resposta            
     } catch (erro) {
         console.log(`Erro ao requisitar os planetas: ${erro}`)
     }

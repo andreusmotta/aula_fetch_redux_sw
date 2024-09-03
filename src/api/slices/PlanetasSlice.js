@@ -2,7 +2,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 //service
-
 import getPlanetas from "../services/PlanetasService";
 
 const initialState = {
@@ -14,7 +13,7 @@ const initialState = {
 
 export const planetasGetSlice = createAsyncThunk("planetas/get", async (_, thunkAPI) => {
     
-    const resposta = await getPlanetas.planetasGetSlice;
+    const resposta = await getPlanetas.planetasGetSlice();
 
     if (resposta.message) {
         return thunkAPI.rejectWithValue(resposta.message);
